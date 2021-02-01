@@ -46,12 +46,20 @@ export default class App extends Component{
         this.setState({tasks:newtasks})
         
     }
+
+    delAllCheckTasks = () =>{
+        const {tasks} = this.state
+        const newTask = tasks.filter((task) =>{
+            return task.done === false
+        })
+        this.setState({tasks:newTask})
+    }
     render() {
         return (
             <div>
                 <Header addTask={this.addTask}/>
                 <List tasks={this.state.tasks} taskChange={this.taskChange} taskDel={this.taskDel}></List>
-                <Footer allTaskNum={this.state.tasks.length} checkTaskNum={1} taskCheck={this.taskCheck}></Footer>
+                <Footer tasks={this.state.tasks} taskCheck={this.taskCheck} delAllCheckTasks={this.delAllCheckTasks}></Footer>
             </div>
         )
     }

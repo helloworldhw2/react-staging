@@ -25,7 +25,7 @@ export default class Item extends Component {
     let {id,name,done} = this.props.task
     return (
       <div style={{backgroundColor: this.state.flag===true ? '#ddd':'white'}} onMouseLeave={this.handleMouse(false)} onMouseEnter={this.handleMouse(true)}>
-        <input type='checkbox' defaultChecked={done} onChange={this.handlechangeState(id)}/>
+        <input type='checkbox' checked={done} onChange={this.handlechangeState(id)}/>
         <span>{name}</span><button onClick={() =>{ this.handleOnClick(id)}} style={{display:this.state.flag===true?'block':'none'}}>删除</button>
         
       </div>
