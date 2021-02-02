@@ -15,6 +15,7 @@ export default class Header extends Component {
       return
     }
     this.props.addTask({id:nanoid(),name:target.value,done:false})
+    target.value = ""
   }
   render() {
     return (
