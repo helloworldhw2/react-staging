@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
+import PubSub from 'pubsub-js'
 
 class Item extends Component {
+    state = {
+      items:[],
+      isFirst:true,
+      isLoading:false,
+      err:''
+  }
+
+  componentDidMount() {
+    this.token = PubSub.subscribe('searchState',(_,data) => {
+      this.setState(data)
+    })
+  }
+
+  componentWillUnmount() {
+    PubSub.unsubscribe(this.token)
+  }
+  
+  
+  
   render() {
-    const {isFirst,isLoading,items,err} = this.props.items
+    const {isFirst,isLoading,items,err} = this.state
     return (
       isFirst ? <h1>欢迎登陆,请输入搜索内容</h1> :
       isLoading ? <h1>loading ......</h1> :

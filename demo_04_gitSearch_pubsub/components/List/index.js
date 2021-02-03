@@ -6,7 +6,7 @@ class List extends Component {
   render() {
     return (
       <div className="row">
-        <Item items={this.props.state}/>
+        <Item/>
       </div>
     );
   }
