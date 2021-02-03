@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {Route,Switch,Redirect} from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Header from './components/Header'
-import MyNavLink from './components/MyNavLink'
+import {NavLink,Route} from 'react-router-dom'
+// import About from './components/About'
 
 class App extends Component {
   render() {
@@ -15,20 +15,17 @@ class App extends Component {
         <div className='row'>
           <div className="col-lg-4">
             <div className="list-group">
-              <MyNavLink to="/clin/home" id={1} sex='man'>home</MyNavLink>
-              <MyNavLink to="/clin/about">about</MyNavLink>
+              <NavLink activeClassName="activeLink" className="list-group-item" to='/home'>home</NavLink>
+              <NavLink activeClassName="activeLink" className="list-group-item" to='/about'>about</NavLink>
             </div>
             
           </div>
-          <div className="col-lg-8">
-            <div className='panel'>
+          <div className="col-lg-8">activeClassName="activeLink" 
+            <div class='panel'>
               <div className="panel-body">
                 <Header/>
-                <Switch>
-                  <Route path='/clin/home' component={Home}></Route>
-                  <Route path='/clin/about' component={About}></Route>
-                  <Redirect to='/clin/home'></Redirect>
-                </Switch>
+                <Route path='/home' component={Home}></Route>
+                <Route path='/about' component={About}></Route>
               </div>
             </div>
           </div>
