@@ -5,6 +5,15 @@ import News from './News'
 import  Message from './Message'
 
 class Home extends Component {
+  componentDidMount() {
+     this.timer = setTimeout(() => {
+      this.props.history.push("/clin/home/message")
+    }, 2000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
   render() {
     return (
       <div>

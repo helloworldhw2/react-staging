@@ -22,8 +22,13 @@ class Message extends Component {
   }
 
   replaceLink = (id,tatil) => {
-    this.props.history.replace(`/clin/home/message/detail/${id}/${tatil}`)
-    
+    this.props.history.replace("/clin/home/message/detail",{id,tatil})
+  }
+  goback = () =>{
+    this.props.history.goBack()
+  }
+  forward = () =>{
+    this.props.history.goForward()
   }
   render() {
     const {messageArr} = this.state
@@ -35,7 +40,7 @@ class Message extends Component {
             messageArr.map((messObj) => {
              return (
               <li key={messObj.id}>
-                <Link to={`/clin/home/message/detail/${messObj.id}/${messObj.tatil}`}>{messObj.tatil}</Link>
+                <Link to={{pathname:"/clin/home/message/detail",state:{id:messObj.id,tatil:messObj.tatil}}}>{messObj.tatil}</Link>
                 <button onClick={()=>{this.pushLink(messObj.id,messObj.tatil)}}>push</button>
                 <button onClick={()=>{this.replaceLink(messObj.id,messObj.tatil)}}>replace</button>
               </li>
@@ -45,6 +50,8 @@ class Message extends Component {
         </ul>
         <hr/>
         <Route path="/clin/home/message/detail" component={Detail}></Route>
+        <button onClick={this.goback}>back</button>
+        <button onClick={this.forward}>forword</button>
       </div>
     )
   }

@@ -9,10 +9,10 @@ const detailData = [
 class Detail extends Component {
   render() {
     console.log(this.props)
-    let {id,tatil} = this.props.match.params
+    let {id,tatil} = this.props.location.state || {}
     const detai = detailData.find((item) => {
       return item.id === id*1
-    })
+    }) || {}
     return (
       <ul>
         <li>id: {id}</li>
