@@ -3,14 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "5.5.0",
+    "@craco/craco": "^6.1.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
     "antd": "^4.12.2",
     "axios": "^0.21.1",
-    "craco-antd": "^1.19.0",
-    "craco-less": "^1.17.1",
     "nanoid": "^3.1.20",
     "prop-types": "^15.7.2",
     "pubsub-js": "^1.9.2",
@@ -21,9 +19,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,8 +42,5 @@
       "last 1 safari version"
     ],
     "comment": "proxy: http://localhost:5000"
-  },
-  "devDependencies": {
-    "antd": "^4.12.2"
   }
 }
